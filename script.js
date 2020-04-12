@@ -55,7 +55,7 @@ function populateUI(){
 movieSelect.addEventListener('change',function(e){
     ticketPrice=+event.target.value
     setMovieData(e.target.selectedIndex, e.target.value);
-    updateSelectedCount()
+    updateSelectedCountAndTotal()
 })
 
 
@@ -65,7 +65,7 @@ container.addEventListener('click',function(e){
     !e.target.classList.contains('occupied')){
         e.target.classList.toggle('selected')
 
-        updateSelectedCount()
+        updateSelectedCountAndTotal()
     }
 })
 
