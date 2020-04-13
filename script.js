@@ -6,17 +6,18 @@ const movieSelect=document.getElementById('movie')
 
 populateUI()
 console.log(typeof movieSelect.value)
-let ticketPrice=+movieSelect.value;
-
-
+let ticketPrice=+movieSelect.value; //converts the string to number
 
 
 //save selected movie index and price
+//more info on doc 1.1
 function setMovieData(movieIndex,moviePrice){
     localStorage.setItem('selectedMovieIndex',movieIndex)
     localStorage.setItem('selectedMoviePrice', moviePrice)
 }
 
+//updates the total no of tickets and total price
+//more info on doc 1.2
 function updateSelectedCountAndTotal(){
     const selectedSeats=document.querySelectorAll('.row .seat.selected')
     const seatsIndex=[...selectedSeats].map((seat)=>{
@@ -33,6 +34,7 @@ function updateSelectedCountAndTotal(){
 }
 
 //get data from localstorage and populate UI
+//more info on doc 1.3
 function populateUI(){
     const selectedSeats=JSON.parse(localStorage.getItem('selectedSeats'))
 
@@ -52,6 +54,7 @@ function populateUI(){
 }
 
 //movie select event
+//more info on doc 1.4
 movieSelect.addEventListener('change',function(e){
     ticketPrice=+event.target.value
     setMovieData(e.target.selectedIndex, e.target.value);
@@ -60,6 +63,7 @@ movieSelect.addEventListener('change',function(e){
 
 
 //seat select event
+//more info on doc 1.5
 container.addEventListener('click',function(e){
     if(e.target.classList.contains('seat') && 
     !e.target.classList.contains('occupied')){
